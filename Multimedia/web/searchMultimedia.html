@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Multimedia Social Network">
+        <meta name="author" content="DreamTeam Development">
+        <link rel="shortcut icon" href="http://oi39.tinypic.com/30nbrio.jpg">
+
+        <!-- Bootstrap CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTRkJOTE9PZUc5Yzg" rel="stylesheet">
+        
+        <!-- Flat UI CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTZmp0eUpkLS1HOE0" rel="stylesheet">
+
+        <!-- Jumbotron CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTdFp6N19MYXZuS0k" rel="stylesheet">
+        
+        <!-- MiV Album CSS Load-->
+        <link rel="stylesheet" href="https://googledrive.com/host/0B3E69UaqStVTeUVMajlzaXNVeTQ" type="text/css"/>
+        
+        <title>MiV - Search Multimedia</title>
+        
+        <style>
+            .contenido {
+            background-color: lightgrey;
+            border-color: #1abc9c;
+            min-height: 120px;
+            overflow: hidden;
+            position: absolute;
+            top: 11%;
+            width: 1050px;
+            margin-left: 35px;
+            }
+            body {
+            background-color: #F6F5FA;
+            }
+            .image-previous:before {
+            content: url(https://googledrive.com/host/0B3E69UaqStVTRWIwZVotcjJ0SEk);
+            }
+            .image-next:before {
+            content: url(https://googledrive.com/host/0B3E69UaqStVTcTZlNFBNbG5xeWc);
+            }
+            .image-home:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTYTQ2aDNQNGZEczQ");
+            }
+            .image-profile:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTMGxrLXgwQTd5dzQ");
+            }
+            .image-search:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTYW5VUDkwbDNKTXc");
+            }
+            .image-friends:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTdFFZUTZGLXUzMXc");
+            }
+            .image-album:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTVjVkZVkyNUEwZzg");
+            }
+            .image-logout:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTSkZBMXhUWV9DX28");
+            }
+            .navbar-special-left{
+            margin-left: 720px;
+            margin-top: 10px;
+            }
+            .area{
+             width: 400px;
+             height: 400px;   
+            }
+            .pages {
+            min-height: 10%;
+            height: auto;
+            left: 0%;
+            overflow: auto;
+            position: absolute;
+            top: 85%;
+            width: 100%;
+            margin-top: 0%;
+            }
+            .side{
+            margin-left: 89%;
+            }
+            .profile{
+            margin-bottom: 5px;   
+            }
+            .form-control[disabled] {
+            background-color: white;
+            border-color: #48c9b0;
+            cursor: default;
+            color: grey;
+            }
+            .searchDiv {
+            position: absolute;
+            top: 35px;
+            left: 348px;
+            z-index: 2;
+            }
+            .searchButtonDiv {            
+            margin-top: -30%;
+            margin-left: 220%;
+            z-index: 3;
+            }
+            .personProfileButtonDiv {
+            position: absolute;
+            top: 350px;
+            left: 351px;
+            z-index: 2;
+            }
+            .input-search{
+            width: 300px;
+            margin-bottom: 5px;
+            margin-right: 35px;
+            margin-left: 10px;  
+            }
+            .centrado{
+             margin-left: 129px;
+             }
+             .alineado{
+             margin-left: 94%;
+             }
+             .fotoNavBar {             
+            background-color: #A0A0A0;             
+            position: absolute;             
+            height: 60px;             
+            width: 60px;             
+            top: 2px;             
+            right: 2px;             
+            z-index: 2;             
+            }             
+            .fondoNavBar{             
+            background-color: #48c9b0;             
+            position: absolute;             
+            height: 60px;             
+            width: 60px;             
+            top: -7px;             
+            left: 297px;             
+            z-index: 2;              
+            }
+            .image {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            }
+             .musicDiv{
+            margin-left: 26px;
+            margin-top: -5px;
+            }
+            .photoDiv{
+            margin-left: 26px;
+            margin-top: -5px;
+            }
+            .videoDiv{
+            margin-left: 26px;
+            margin-top: 15px;
+            }
+       </style>
+       <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+       <script>
+        function getFromInstagram() {
+        var tag = $('#userInput').val();
+        var tagSplitted = tag.split(' ');
+	var count = "20";
+	var access_token = {"access_token":"730985678.5ba3e84.a702ee318ca342c2a9c84723ba50a5ed"};
+
+        if(tagSplitted.length > 0) {
+            tag = '';
+            for (var i in tagSplitted) {
+                tag = tag + tagSplitted[i];
+            }
+        }
+        
+        var instagramLink = 'https://api.instagram.com/v1/tags/' + tag + '/media/recent?callback=?&count='+count;
+
+        $('#photoDiv').html('');
+
+	var jsonGet = $.getJSON(instagramLink,access_token)
+            .done(function(json) {
+ 
+             if(json.meta.code === 200) 
+             {
+                 var photos = json.data;
+
+                  if(photos.length > 0) {
+                        for (var i in photos ){      
+                           var photo = photos[i];
+                           $('#photoDiv').append('<button name="photo" class="btn btn-primary image" value="'+photo.images.standard_resolution.url+'" type="submit">' +
+                                                '<img src='+photo.images.thumbnail.url+'></img>' +
+                                                '</button>');
+                        }
+                      }
+                  else 
+                  {
+                    $('#photoDiv').append('<h5 style="z-index: 5; margin-left: 10px;">No matching photos were found.</h5>');
+                  }
+              }
+              else {
+                $('#photoDiv').append('<h5 style="z-index: 5; margin-left: 10px;">Instagram does not allow improper language.</h5>');
+              }
+          })
+        }
+        
+        function getFromYoutube() {
+        var tag = $('#userInput').val();
+          
+	var youtubeLink = 'https://gdata.youtube.com/feeds/api/videos?q='+tag+'&max-results=9&v=2&alt=json';
+
+        $('#videoDiv').html('');
+
+	var jsonGet = $.getJSON(youtubeLink)
+            .done(function(json) {
+            
+                 var videos = json.feed.entry;
+
+                  if(videos.length > 0) {
+                        for (var i in videos ){      
+                           var video = videos[i];
+                           var link = 'http://www.youtube.com/embed/'+video.id.$t.split(':')[3]+'?autoplay=1';
+                           var title = video.title.$t;
+                           var thumbnail = video.media$group.media$thumbnail[1].url;
+                           $('#videoDiv').append('<button name="video" style="margin-right: 5px; margin-left: 15px;margin-bottom: 10px;" title="'+title+'" class="btn btn-primary" value="'+link+'*'+thumbnail+'*'+title+'" type="submit">' +
+                                   '<img type="text/html" width="285" height="230" src="'+thumbnail+'"></img></button>');						   
+                        }
+                      }
+                  else {
+                    $('#videoDiv').append('<h5 style="z-index: 5; margin-left: 10px;">No matching videos were found.</h5>');
+                  }
+          })
+          return false;
+        }
+        
+        function getFromSoundcloud() {
+        var tag = $('#userInput').val();
+          
+	var soundcloudLink = 'http://api.soundcloud.com/tracks?q='+tag+'&client_id=YOUR_CLIENT_ID&format=json&limit=10';
+
+        $('#musicDiv').html('');
+
+	var jsonGet = $.getJSON(soundcloudLink)
+            .done(function(json) {
+            
+            if(json.length > 0) {
+                        $('#musicPreview').attr('src','https://w.soundcloud.com/player/?url='+json[0].uri+'&amp;color=48c9b0&amp;auto_play=true&amp;show_artwork=true');
+                        for (var i in json ){      
+                           var music = json[i];
+                           var link = 'https://w.soundcloud.com/player/?url='+music.uri+'&amp;color=48c9b0&amp;auto_play=true&amp;show_artwork=true';
+                           var title = music.title;
+                           var thumbnail = music.artwork_url;
+                          
+                            if(!thumbnail) {
+                              thumbnail = 'https://googledrive.com/host/0B3E69UaqStVTOXJpRlFMMkJYUUE';
+                           }
+                           
+                           $('#musicDiv').append('<button name="music" style="margin-right: 5px; margin-left: 15px;margin-bottom: 10px;" title="'+title+'" class="btn btn-primary" value="'+link+'*'+thumbnail+'*'+title+'" type="submit">' +
+                                   '<img type="text/html" width="150" height="150" src="'+thumbnail+'"></img></button>');						   
+                        }
+                      }
+                  else {
+                    $('#musicDiv').append('<h5 style="z-index: 5; margin-left: 10px;">No matching music were found.</h5>');
+                  }
+            
+          })
+          return false;
+        }
+        
+        function checkIfUserPressEnter(e) {
+            if (e.keyCode == 13) {
+                return autoSearch();
+            }
+        }
+        
+        function autoSearch(){
+            var tag = $('#userInput').val();
+            if(!tag) {
+                $('#content').hide();
+                return false;
+            }
+            else {
+                $('#content').show();
+                getFromInstagram();
+                getFromSoundcloud();
+                return getFromYoutube();
+            }
+        }
+       </script>
+    </head>
+    <body onload="return autoSearch();">
+        <form method="post" action="/miv/searchMultimedia.htm">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <font COLOR="#FFFFFF">  <h2>MiV</h2> </font>      
+                    </div>
+                        <div class="btn-group navbar-special-left">                            
+                            <button class="btn btn-primary" title="Home" name="home" value="home" type="submit"><i class="image-home"></i></button>									
+                            <button class="btn btn-primary" title="Profile" name="viewProfile" value="viewProfile" type="submit"><i class="image-profile"></i></button>									
+                            <button class="btn btn-primary" title="Search" name="search" name="search" type="submit"><i class="image-search"></i></button>
+                            <button class="btn btn-primary" title="Friends" name="friends" name="friends" type="submit"><i class="image-friends"></i></button>
+                            <button class="btn btn-primary" title="Album" name="album" value="album" type="submit"><i class="image-album"></i></button>
+                            <button class="btn btn-primary" title="Logout" name="logout" value="logout" type="submit"><i class="image-logout"></i></button>
+                            <div class="fondoNavBar">
+                                <img class="fotoNavBar" src="${user.getImage()}"/>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </form>        
+        <form method="post" action="/miv/searchMultimedia.htm">
+        <div class="container"> 
+            <div class="contenido">
+                <h3>&nbsp;Multimedia</h3>
+                <table align="center">
+                    <tr>
+                        <td>					
+                            <div class="input-search searchDiv">
+                                <input id="userInput" type="text" placeholder="Search things" class="form-control input-lg input-primary" name="userInput" value="hardwell" onkeypress="return checkIfUserPressEnter(event);">              
+                            </div>
+                        </td>
+                        <td>
+                            <div class="container searchButtonDiv">
+                                <button id="searchButton" class="btn btn-primary" title="Search multimedia" onclick="return autoSearch();"><i class="image-search"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>    
+                <br>                   
+                <table id="content">                 
+                    <tr>
+                        <td>
+                            <iframe id="musicPreview" width="100%" height="166" scrolling="no" frameborder="no" src=""></iframe>
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>&nbsp;Music</h3>    
+                            <br>
+                            <div id="musicDiv" class="musicDiv">
+                                
+                            </div>                                
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>&nbsp;Images</h3>    
+                            <br>
+                            <div id="photoDiv" class="photoDiv"></div>                                
+                        </td>                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>&nbsp;Videos</h3>    
+                            <div id="videoDiv" class="videoDiv"></div>                                
+                        </td>                        
+                    </tr>
+                </table>
+            </div>
+        </div>        
+        </form>       
+                            
+        <!-- Bootstrap core JavaScript
+        ================================================= -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>

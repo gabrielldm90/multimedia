@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Multimedia Social Network">
+        <meta name="author" content="DreamTeam Development">
+        <link rel="shortcut icon" href="https://googledrive.com/host/0B3E69UaqStVTMHBhMWtNa3VrRFk">
+        <style>
+            .center-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            }
+            ul{
+            margin-left:0px;
+            }
+            .disk{   
+            list-style-type: disc;
+            }
+            .text-pointer{
+            cursor: pointer;
+            }
+            .div-margin-left{
+            margin-left: 5px;
+            }
+        </style>	
+
+        <script type="text/javascript">   
+        function signinCallback(authResult) {
+            if (authResult['access_token']) {
+              document.getElementById('signinButton').setAttribute('style', 'display: none');
+              getEmail();
+              
+            } else if (authResult['error']) {
+              console.log('Sign-in state: ' + authResult['error']);
+            }               
+        }
+          
+        function getEmail(){
+        gapi.client.load('oauth2', 'v2', function() {
+        var request = gapi.client.oauth2.userinfo.get();
+        request.execute(getEmailCallback);
+        });
+        }
+
+        function getEmailCallback(obj){
+        var el = document.getElementById('email');
+        var email = '';
+
+        if (obj['email']) {
+        email = obj['email'];
+        }
+
+        el.innerHTML = email;
+        el.value = email;
+        submitForm();
+        }
+        
+        function submitForm(){
+            document.getElementById("email").click();
+        }
+       </script>
+        
+        <title>Welcome to MiV</title>
+
+        <!-- Bootstrap CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTRkJOTE9PZUc5Yzg" rel="stylesheet">
+        
+        <!-- Flat UI CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTZmp0eUpkLS1HOE0" rel="stylesheet">
+
+        <!-- Jumbotron CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTdFp6N19MYXZuS0k" rel="stylesheet">
+        
+    </head>
+    <body>
+        <div>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header text-pointer" onclick="location.href='/miv/'">
+                        <font COLOR="#FFFFFF">  <h2> MiV <small>All in one.</small></h2> </font>        
+                    </div>       
+                    <form class="navbar-form navbar-right" method="post" action="/miv/index.htm">        	
+                        <div id="signinButton">
+                        <div
+                          class="g-signin"
+                          data-callback="signinCallback"
+                          data-clientid="681852405378.apps.googleusercontent.com"
+                          data-cookiepolicy="single_host_origin"
+                          data-requestvisibleactions="http://schemas.google.com/AddActivity"
+                          data-scope="https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/userinfo.email"
+                          data-width="standard"
+                          data-height="tall">                            
+                        </div>  
+                        </div>
+                        <button id="email" name="email" type="submit" style="display: none"></button>
+                   </form>
+            </div>
+        </div>
+            
+        <div class="jumbotron">
+            <div class="container">                
+                <h5>Find and share music, images and videos you like.</h5>    
+                <ul>
+                    <div><li class="disk"><font COLOR="#888690"><p>Log in with your Google+ account.</p></font></li></div>
+                    <div><li class="disk"><font COLOR="#888690"><p>Find music from SoundCloud, images from Instagram or videos from YouTube.</p></font></li></div> 
+                    <div><li class="disk"><font COLOR="#888690"><p>Create albums with all that you find and share them with your friends.</p></font></li></div>
+                </ul>   
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <img src="https://googledrive.com/host/0B3E69UaqStVTYnVzZlQ5THpnbFk" class="center-image" alt="explanation" width="950" height="400">
+            </div>
+            <hr>
+            <footer>
+                <h4>MiV <small>&copy; 2013</small></h4>
+            </footer>
+        </div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================= -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://googledrive.com/host/0B3E69UaqStVTeFNoaDRFclpCdXM"></script>
+        <script src="https://googledrive.com/host/B3E69UaqStVTMmtkeE9BTTQwQ0U"></script>
+      
+        <!-- Google OpenID core JavaScript -->
+        <script>
+            (function() {
+             var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+             po.src = 'https://apis.google.com/js/client:plusone.js';
+             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+             })();  
+        </script>
+    </body>
+</html>

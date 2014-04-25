@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Multimedia Social Network">
+        <meta name="author" content="DreamTeam Development">
+        <link rel="shortcut icon" href="http://oi39.tinypic.com/30nbrio.jpg">
+
+        <!-- Bootstrap CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTRkJOTE9PZUc5Yzg" rel="stylesheet">
+        
+        <!-- Flat UI CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTZmp0eUpkLS1HOE0" rel="stylesheet">
+
+        <!-- Jumbotron CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTdFp6N19MYXZuS0k" rel="stylesheet">
+        
+        <!-- MiV Album CSS Load-->
+        <link rel="stylesheet" href="https://googledrive.com/host/0B3E69UaqStVTeUVMajlzaXNVeTQ" type="text/css"/>
+        
+        <title>MiV - Listen Song</title>
+        
+        <style>
+            .contenido {
+            background-color: lightgrey;
+            border-color: #1abc9c;
+            height: 587px;
+            position: absolute;
+            top: 11%;
+            width: 1050px;
+            margin-left: 35px;
+            }
+            body {
+            background-color: #F6F5FA;
+            }
+            .image-delete:before {
+            content: url(https://googledrive.com/host/0B3E69UaqStVTdUkxbU52RE01R00);
+            }
+            .image-plus:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTakE0VTd0Q2lUQ3c");
+            }
+            .image-previous:before {
+            content: url(https://googledrive.com/host/0B3E69UaqStVTRWIwZVotcjJ0SEk);
+            }
+            .image-next:before {
+            content: url(https://googledrive.com/host/0B3E69UaqStVTcTZlNFBNbG5xeWc);
+            }
+            .image-home:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTYTQ2aDNQNGZEczQ");
+            }
+            .image-profile:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTMGxrLXgwQTd5dzQ");
+            }
+            .image-search:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTYW5VUDkwbDNKTXc");
+            }
+            .image-friends:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTdFFZUTZGLXUzMXc");
+            }
+            .image-album:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTVjVkZVkyNUEwZzg");
+            }
+            .image-logout:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTSkZBMXhUWV9DX28");
+            }
+            .navbar-special-left{
+            margin-left: 720px;
+            margin-top: 10px;
+            }
+            .area{
+             width: 400px;
+             height: 400px;   
+            }
+            .pages {
+            min-height: 10%;
+            height: auto;
+            left: 0%;
+            overflow: auto;
+            position: absolute;
+            top: 85%;
+            width: 100%;
+            margin-top: 0%;
+            }
+            .side{
+            margin-left: 89%;
+            }
+            .profile{
+            margin-bottom: 5px;   
+            }
+            .form-control[disabled] {
+            background-color: white;
+            border-color: #48c9b0;
+            cursor: default;
+            color: grey;
+            }
+            .foto {
+            background-color: #A0A0A0;
+            position: absolute;
+            height: 150px;
+            width: 150px;
+            top: 5px;
+            left: -6px;
+            z-index: 2;
+            }
+            .searchDiv {
+            position: absolute;
+            top: 5px;
+            left: 348px;
+            z-index: 2;
+            }
+            .searchButtonDiv {            
+            margin-top: -6.7%;
+            margin-left: 61.8%;
+            z-index: 3;
+            }
+            .personProfileButtonDiv {
+            position: absolute;
+            top: 350px;
+            left: 351px;
+            z-index: 2;
+            }
+            .input-search{
+            width: 300px;
+            margin-bottom: 5px;
+            margin-right: 35px;
+            margin-left: 10px;  
+            }
+            .centrado{
+             margin-left: 129px;
+             }
+             .alineado{
+             margin-left: 94%;
+             }
+             .fotoNavBar {             
+            background-color: #A0A0A0;             
+            position: absolute;             
+            height: 60px;             
+            width: 60px;             
+            top: 2px;             
+            right: 2px;             
+            z-index: 2;             
+            }             
+            .fondoNavBar{             
+            background-color: #48c9b0;             
+            position: absolute;             
+            height: 60px;             
+            width: 60px;             
+            top: -7px;             
+            left: 297px;             
+            z-index: 2;              
+            }
+            .fondo {
+            position: absolute; 
+            height: 180px;
+            width: 100%;            
+            margin-top: 110px;
+            margin-left: 25px;
+            z-index: 3;
+            }
+            .position{
+            left: 795px;
+            top: -65px;
+            }
+            .addButtonDiv{
+            margin-top: 41%;
+            margin-left: 47%;
+            }
+            .makeCoverDiv{
+            margin-top: 41%;
+            margin-left: 45%;
+            }
+            .deleteButtonDiv{
+            margin-top: -6%;
+            margin-left: 94.8%;
+            }
+        </style>
+        <script>
+            if(window.history.forward(1) !== null)
+                    window.history.forward(1);
+        </script>
+        <script>
+        function setAlbumsInCombo() {
+            var albumNames = $('#albumNames').val().split(":");
+            var viewOption = $('#viewOption').val();
+            
+            $('#albumCombo').html('');
+
+            for (var i in albumNames) {                
+                $('#albumCombo').append('<option name="option" value="'+i+'">'+albumNames[i]+'</option>');
+            }
+            setSelectedOption();
+            
+            if(viewOption === 'ADD'){
+               $('#albumComboDiv').show();
+               $('#addButton').show();
+            }
+            else if (viewOption === 'EDIT') {
+               $('#makeCoverButton').show();
+               $('#deleteButton').show();
+            }
+        }
+        
+        function setSelectedOption() {
+            $("#comboOption").val($("#albumCombo").val());
+        }
+        </script>
+    </head>
+    <body onload="setAlbumsInCombo();">
+        <form method="post" action="/miv/viewMusic.htm">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <font COLOR="#FFFFFF">  <h2>MiV</h2> </font>      
+                    </div>
+                    <div class="btn-group navbar-special-left">                            
+                        <button class="btn btn-primary" title="Home" name="home" value="home" type="submit"><i class="image-home"></i></button>									
+                        <button class="btn btn-primary" title="Profile" name="viewProfile" value="viewProfile" type="submit"><i class="image-profile"></i></button>									
+                        <button class="btn btn-primary" name="search" name="search" type="submit"><i class="image-search"></i></button>
+                        <button class="btn btn-primary" title="Friends" name="friends" name="friends" type="submit"><i class="image-friends"></i></button>
+                        <button class="btn btn-primary" title="Album" name="album" value="album" type="submit"><i class="image-album"></i></button>
+                        <button class="btn btn-primary" title="Logout" name="logout" value="logout" type="submit"><i class="image-logout"></i></button>
+                        <div class="fondoNavBar">
+                            <img class="fotoNavBar" src="${user.getImage()}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form method="post" action="/miv/viewMusic.htm">
+        <div class="container"> 
+            <div class="contenido">
+                <h3>&nbsp;Music</h3>   
+                <br>                   
+                <table>
+                    <tr>
+                        <td>
+                            <div class="fondo" style="">
+                                <iframe width="95%" height="180" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134079724&amp;amp;color=48c9b0&amp;amp;auto_play=true&amp;amp;show_artwork=true"></iframe> 
+                            </div>
+                        </td>        
+                    </tr>
+                </table>
+                <div id="albumComboDiv" class="col-md-3 position" title="Select an album" onclick="setSelectedOption();" style="">
+                    <select id="albumCombo" name="herolist" value="X-Men" class="select-block" style="">
+                    </select>
+                </div>
+                <div id="addButton" class="addButtonDiv" style="display: none">
+                    <button class="btn btn-primary" name="addToAlbum" value="addToAlbum" title="Add to album" type="submit"><i class="image-plus"></i></button>
+                </div> 
+                <div id="deleteButton" class="deleteButtonDiv" style="display: none">
+                    <button class="btn btn-primary" name="delete" value="delete" title="Delete from album" type="submit"><i class="image-delete"></i></button>
+                </div> 
+            </div>
+        </div> 
+        <input id="comboOption" name="comboOption" style="display: none;"/>                    
+        </form>
+        <input id="albumNames" style="display: none;" value="${albumNames}"/> 
+        <input id="viewOption" style="display: none;" value="${viewOption}"/>  
+        <!-- Bootstrap core JavaScript
+        ================================================= -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+        <script src="http://designmodo.github.io/Flat-UI/js/jquery-1.8.3.min.js"></script>
+        <script src="http://designmodo.github.io/Flat-UI/js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="http://designmodo.github.io/Flat-UI/js/jquery.ui.touch-punch.min.js"></script>
+        <script src="http://designmodo.github.io/Flat-UI/js/bootstrap.min.js"></script>
+        <script src="http://designmodo.github.io/Flat-UI/js/bootstrap-select.js"></script>
+        <script src="http://designmodo.github.io/Flat-UI/js/application.js"></script>
+    </body>
+</html>

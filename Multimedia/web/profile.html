@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Multimedia Social Network">
+        <meta name="author" content="DreamTeam Development">
+        <link rel="shortcut icon" href="http://oi39.tinypic.com/30nbrio.jpg">
+
+        <!-- Bootstrap CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTRkJOTE9PZUc5Yzg" rel="stylesheet">
+        
+        <!-- Flat UI CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTZmp0eUpkLS1HOE0" rel="stylesheet">
+
+        <!-- Jumbotron CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTdFp6N19MYXZuS0k" rel="stylesheet">
+
+        <!-- MiV Profile CSS Load -->
+        <link href="https://googledrive.com/host/0B3E69UaqStVTZU9PTnhXdU0yQ1U" rel="stylesheet">
+        
+	<title>MiV - Edit Profile</title>
+
+        <style>
+            .contenido {
+            background-color: lightgrey;
+            border-color: #1abc9c;
+            height: 587px;
+            position: absolute;
+            top: 11%;
+            width: 1050px;
+            margin-left: 35px;
+            }	
+            body {
+            background-color: #F6F5FA;
+            }
+            .image-save:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTejFDczEzVXpTYVU");
+            }
+            .image-home:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTYTQ2aDNQNGZEczQ");
+            }
+            .image-profile:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTMGxrLXgwQTd5dzQ");
+            }
+            .image-search:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTYW5VUDkwbDNKTXc");
+            }
+            .image-friends:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTdFFZUTZGLXUzMXc");
+            }
+            .image-album:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTVjVkZVkyNUEwZzg");
+            }
+            .image-logout:before {
+            content: url("https://googledrive.com/host/0B3E69UaqStVTSkZBMXhUWV9DX28");
+            }          
+            .navbar-special-left{
+            margin-left: 720px;
+            margin-top: 10px;
+            }
+            .navbar-special-save{
+                    margin-left: 880px;
+            }
+            .fondo {
+            background-color: #48c9b0;
+            position: relative;
+            height: 150px;
+            width: 150px;
+            top: -290px;
+            left: 8.5%;
+            margin-top: 60px;
+            z-index: 3;
+            }
+            .foto {
+            background-color: #A0A0A0;
+            position: absolute;
+            height: 150px;
+            width: 150px;
+            top: 5px;
+            left: -6px;
+            z-index: 2;
+            }
+            .fotoNavBar {             
+            background-color: #A0A0A0;             
+            position: absolute;             
+            height: 60px;             
+            width: 60px;             
+            top: 2px;             
+            right: 2px;             
+            z-index: 2;             
+            }             
+            .fondoNavBar{             
+            background-color: #48c9b0;             
+            position: absolute;             
+            height: 60px;             
+            width: 60px;             
+            top: -7px;             
+            left: 297px;             
+            z-index: 2;              
+            }
+        </style>
+        <script>
+            if(window.history.forward(1) !== null)
+                    window.history.forward(1);
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <form method="post" action="/miv/modifyProfile.htm">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <font COLOR="#FFFFFF">  <h2>MiV</h2> </font>      
+                    </div>
+                        <div class="btn-group navbar-special-left">                            
+                            <button class="btn btn-primary" title="Home" name="home" value="home" type="submit"><i class="image-home"></i></button>									
+                            <button class="btn btn-primary active" name="viewProfile" value="viewProfile" type="submit"><i class="image-profile"></i></button>									
+                            <button class="btn btn-primary" title="Search" name="search" name="search" type="submit"><i class="image-search"></i></button>
+                            <button class="btn btn-primary" title="Friends" name="friends" name="friends" type="submit"><i class="image-friends"></i></button>
+                            <button class="btn btn-primary" title="Albums" name="album" value="album" type="submit"><i class="image-album"></i></button>
+                            <button class="btn btn-primary" title="Logout" name="logout" value="logout" type="submit"><i class="image-logout"></i></button>
+                            <div class="fondoNavBar">
+                                <img class="fotoNavBar" src="${user.getImage()}"/>
+                            </div>
+                        </div>					
+                </div>
+            </div>
+        </form>
+        <form method="post" action="/miv/modifyProfile.htm">
+            <div class="contenido">		
+            <h3>&nbsp;Edit Profile</h3>
+            <table align="center" style="margin-top: 30px;">
+                        <tr>
+                            <td>
+                                <div class="input-group input-group-lg profile ${nameStyle}" title="${nameTitle}">
+                                    <span class="input-group-addon">&nbsp;&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input type="text" class="form-control" placeholder="Name" value="${name}" name="name">
+                                </div>
+                                <div class="input-group input-group-lg profile ${lastNameStyle}" title="${lastNameTitle}">
+                                    <span class="input-group-addon">Last Name</span>
+                                    <input type="text" class="form-control" placeholder="Last Name" value="${lastName}" name="lastName">
+                                </div>
+                                <div class="input-group input-group-lg profile">
+                                    <span class="input-group-addon">Birth Date&nbsp;</span>
+                                    <input type="text" class="form-control" placeholder="Birth Date" value="${formatedBirthDate}" name="birthDate" disabled="disabled">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-lg profile">
+                                    <span class="input-group-addon">&nbsp;&nbsp;&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input type="text" class="form-control input-lg input-primary" placeholder="Email" value="${user.getEmail()}" name="email" disabled="disabled">
+                                </div>
+                                <div class="input-group input-group-lg profile">
+                                    <span class="input-group-addon">Username</span>
+                                    <input type="text" class="form-control" placeholder="Username" value="${user.getUsername()}" name="username" disabled="disabled">
+                                </div>
+                                <div class="input-group input-group-lg profile ${locationStyle}" title="${locationTitle}">
+                                        <span class="input-group-addon">&nbsp;&nbsp;Location&nbsp;</span>
+                                        <input type="text" class="form-control" placeholder="Location" value="${location}" name="location">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan = "2" >
+                                <center>
+                                <div class="input-group input-group-lg profile ${googleStyle}" title="${googleTitle}">
+                                <span class="input-group-addon">&nbsp;&nbsp;Google&nbsp;&nbsp;</span>
+                                    <input type="text" class="form-control" placeholder="Google" value="${google}" name="google">
+                                </div>
+                                <div class="input-group input-group-lg profile ${twitterStyle}" title="${twitterTitle}">
+                                    <span class="input-group-addon">&nbsp;&nbsp;Twitter&nbsp;&nbsp;</span>
+                                    <input type="text" class="form-control" placeholder="Twitter" value="${twitter}" name="twitter">
+                                </div>
+                                <div class="input-group input-group-lg profile ${facebookStyle}" title="${facebookTitle}">
+                                    <span class="input-group-addon">Facebook</span>
+                                    <input type="text" class="form-control" placeholder="Facebook" value="${facebook}" name="facebook">
+                                </div>                                
+                                    <div class="btn-group">
+                                        <button type="submit" class="btn btn-primary" title="Modify Profile" name="submitModifyButton"><i class="image-save"></i></button>									
+                                    </div>
+                     
+                                </center>
+                            </td>
+                        </tr>	
+                    </table>
+                    <div class="fondo" style="">
+                    <img class="foto" src="${user.getImage()}">							
+                    </img>
+            </div> 
+            <br>
+            </div>
+        </form>
+        </div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================= -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>
